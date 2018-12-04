@@ -1,0 +1,78 @@
+CREATE DATABASE KONDYTER
+COLLATE Cyrillic_General_CI_AS
+GO
+
+CREATE TABLE Kondyter
+(ProductID int NOT NULL IDENTITY,
+NameOfConfectioneryProduct nvarchar(30) NULL,
+Price money NOT NULL,
+Amount tinyint NOT NULL,
+CompanyOfProducts nvarchar(20) NULL
+)
+GO
+
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Чорний шоколад', 500, 10, 'Milka')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Молодчний шоколад', 800, 123, 'Рошен')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Чорний шоколад', 200, 30, 'Світоч')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Молочний шоколад', 424, 50, 'Milka')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Зефір', 123, 47, 'Milka')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Вафлі', 15, 4, 'Milka')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Зефір', 23, 1, 'Рошен')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Вафлі', 345, 100, 'Рошен')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Зефір', 260, 34, 'Світоч')
+GO
+INSERT INTO Kondyter (NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts) 
+VALUES ('Вафлі', 500, 345, 'Світоч')
+GO
+
+SELECT * FROM Kondyter;
+
+SELECT * FROM Kondyter ORDER BY NameOfConfectioneryProduct ASC;
+
+
+SELECT NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts FROM Kondyter 
+ORDER BY CompanyOfProducts ASC, 
+NameOfConfectioneryProduct ASC;
+
+SELECT NameOfConfectioneryProduct, Price, Amount FROM Kondyter 
+WHERE CompanyOfProducts='Світоч'; 
+
+SELECT NameOfConfectioneryProduct, Price, Amount, CompanyOfProducts 
+FROM Kondyter
+WHERE Price>=200 AND  Price<=400;
+
+SELECT * FROM Kondyter WHERE NameOfConfectioneryProduct LIKE 'М%';
+
+SELECT MIN(Price) AS SmallestPrice
+FROM Kondyter;
+
+SELECT CompanyOfProducts, AVG(Price) AS PriceAVG
+FROM Kondyter GROUP BY CompanyOfProducts;
+
+SELECT CompanyOfProducts, SUM(Amount) AS TotalCountOfProducts 
+FROM Kondyter GROUP BY CompanyOfProducts;
+
+1111
+
+
+
+
+
+
